@@ -1,0 +1,159 @@
+.portfolio_projectsList{
+    /* background-color: burlywood; */
+    min-height: 100vh;
+    padding: 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectsList_text{
+    /* background-color: cadetblue; */
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2em;
+    padding: 0 8rem ;
+}
+.projectsList_text .projectsList_title{
+    font-size: 5rem;
+}
+
+.projects_list{
+    /* background: turquoise; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+@media screen and (max-width: 1080px) {
+    .portfolio_projectsList{
+        padding: 1rem 5rem;
+    }
+    .projectsList_text{
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 780px){
+    .portfolio_projectsList{
+        padding: 0 2rem;
+    }
+    .projectsList_text .projectsList_title{
+        font-size: 3rem;
+    }
+
+}
+
+
+
+@media screen and (max-width:480px){
+    .portfolio_projectsList{
+        padding: 1rem;
+    }
+
+    .projectsList_text{
+        width: 100%;
+    }
+    .projectsList_text .projectsList_title{
+        font-size: 3rem;
+    }
+    .projectsList_desc{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .projectsList_list{
+    background-color: chocolate;
+    width: 80%;
+    height: 70vh;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.projectItem{
+    min-width: 100%;
+    min-height: 100%;
+    background: cornflowerblue;
+    position: relative;
+}
+
+.projectDetails_Overlay{
+    width: 100%;
+    height: fit-content;
+    background: rgba(73, 73, 73, 0.788);
+    color: #fff;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.project_heading{
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: monospace;
+    padding: .2em;
+    display: inline-block;
+    background: rgba(73, 73, 73, 0.788);
+    border-top-right-radius: 20px;
+    color: rgb(179, 172, 174);
+}
+
+.slides{
+    width: 40%;
+    background: darkgray;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-evenly;
+    padding: .5em;
+}
+
+.slides .project_radioBtn{
+    cursor: pointer;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+.project_radioBtn:r
+
+.project_info{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    text-transform: uppercase;
+    font-family: monospace;
+    padding: .5em;
+    display: inline-block;
+    background: rgba(73, 73, 73, 0.788);
+    border: 1px solid rgba(73, 73, 73);
+} */
+
+
+/* .projectsList_list div{
+    width: 100%;
+    height: 100%;
+    background-color: coral;
+} */

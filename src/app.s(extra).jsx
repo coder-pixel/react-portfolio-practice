@@ -9,22 +9,26 @@ import Contact from './Components/Contact/Contact';
 import Toggle from './Components/ToggleMode/Toggle';
 
 import ThemeProvider, { ThemeContext } from './Context';
-import useLocalStorage from './useLocalStorage';
-import { ErrorBoundary } from 'react-error-boundary';
-import FallbackComponent from './Components/FallbackComponent';
-
 
 function App() {
+  const { darkMode } = useContext(ThemeContext);
+  console.log("darkMode: " + darkMode);
+
   const [theme, setTheme] = useState(false);
-  
-  const [localStorageContent, setLocalStorageContent] = useLocalStorage("themeMode", "theme1");
-  console.log("localStorageContent: " + localStorageContent)
-  
-  const [selectedTheme, setSelectedTheme] = useState(localStorageContent);
-  //   const [mode, setMode] = useState({
-  //     themeMode: "",
-  //     darkMode: false
-  //   });
+  const [mode, setMode] = useState({
+    themeMode: "",
+    darkMode: darkMode
+  });
+  const [selectedTheme, setSelectedTheme] = useState(mode.themeMode !== "" ? mode.themeMode : "theme1");
+
+  console.log("selectedTheme: " + selectedTheme);
+  useEffect(() => {
+    console.log("selectedTheme inside useEffect: " + selectedTheme)
+    let d = JSON.parse(localStorage.getItem("themeMode"))
+    console.log(d);
+    // console.log(JSON.parse(d))
+    setMode(d)
+  }, [])
 
   // console.log("selectedTheme: " + selectedTheme);
 
@@ -58,7 +62,7 @@ function App() {
     setSelectedTheme(themeNo);
   }
 
-  //   console.log(mode);
+  console.log(mode);
   useEffect(() => {
     // setting theme conditionally
     let r = document.querySelector(":root");
@@ -68,26 +72,17 @@ function App() {
     if (selectedTheme === "theme2") r.style.setProperty('--theme-color', "#00aac1");
     if (selectedTheme === "theme3") r.style.setProperty('--theme-color', "#7e4c74");
 
-    // localStorage.setItem("themeMode", selectedTheme);
+    localStorage.setItem("themeMode", JSON.stringify({...mode, themeMode: selectedTheme}));
     // setTheme(!theme);
-    setLocalStorageContent(selectedTheme);
   }, [selectedTheme])
 
-  const { darkMode } = useContext(ThemeContext);
-  console.log("darkMode: " + darkMode);
 
   const themeRef = useRef(null);
+  useOutsideThemeAlerter(themeRef);
 
-
-  // const errHadnler = (error, errInfo) => {
-  //   console.log("Logging: ", error, errInfo)
-
-  //   // or we can call the logging service here to display the error something like that
-  // }
   return (
     <>
-      {/* <div style={{ backgroundColor: darkMode ? "#222" : "#fff", color: darkMode && "#fff" }}> */}
-      <div style={{ backgroundColor: darkMode ? "#222" : "", color: "#fff" }}>
+      <div style={{ backgroundColor: darkMode ? "#222" : "#fff", color: darkMode && "#fff" }}>
         <div className={`theme_selector ${theme ? "theme" : null}`}>
           <button onClick={showTheme}>
             {theme ? <i className="fas fa-chevron-right"></i> : <i className="fas fa-chevron-left"></i>}
@@ -112,10 +107,6 @@ function App() {
         </div>
 
         <Toggle />
-
-        {/* <ErrorBoundary FallbackComponent={FallbackComponent} onError={errHadnler}>
-          <Intro />
-        </ErrorBoundary> */}
         <Intro />
         <About />
         <ProjectsList />
@@ -129,4 +120,3 @@ function App() {
 }
 
 export default App;
-

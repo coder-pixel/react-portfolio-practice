@@ -1,0 +1,184 @@
+/* all css variables defined in app.css  */
+
+.portfolio_Intro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* background-color: aquamarine; */
+}
+
+/* intro left side */
+.portfolio_Intro .intro_left {
+    flex: 1;
+    /* background: beige; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.intro_left_content {
+    padding: 5em;
+    /* background: cornflowerblue; */
+    /* min-height: 50%; */
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.intro_left_content h2 {
+    font-size: 2rem;
+    font-weight: 300;
+}
+.intro_left_content h1 {
+    font-size: 3.2rem;
+}
+.intro_left_title {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    /* background: violet; */
+}
+.intro_left_title > h1 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+}
+.intro_left_title_wrapper {
+    height: 50px;
+    overflow: hidden;
+    /* background: chocolate; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0 0.5em;
+}
+
+.intro_left_title_item {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 50px;
+    color: var(--theme-color);
+    padding: 0 0.2em;
+    /* height: 50px; */
+    /* padding-left: .5em; */
+    /* background: chartreuse; */
+    transition: 300ms;
+    animation: move 10s ease-in-out infinite alternate;
+}
+@keyframes move {
+    25% {
+        transform: translateY(-50px);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+    75% {
+        transform: translateY(-150px);
+    }
+    100% {
+        transform: translateY(-200px);
+    }
+}
+
+.intro_left_desc {
+    margin: 1em 0;
+    letter-spacing: 2px;
+}
+.intro_left_socialMedia {
+    /* background: violet; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10em;
+}
+.intro_left_socialMedia a {
+    font-size: 1.2rem;
+    color: #fff;
+    background: var(--theme-color);
+    padding: 0.1em 0.2em;
+    margin: 0 0.2em;
+    border-radius: 5px;
+}
+.intro_left_socialMedia a:hover {
+    background-color: rgb(54, 53, 53);
+    color: var(--theme-color);
+}
+
+.moveToTop_scroll {
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    bottom: 20px;
+    right: 0%;
+    transform: translateX(-50%);
+    font-weight: 900;
+    stroke: #444;
+    z-index: 999;
+}
+.moveToTop_scroll:hover {
+    stroke: #000;
+    cursor: pointer;
+}
+
+.intro_right {
+    flex: 1;
+    /* background: bisque; */
+    position: relative;
+}
+.intro_right_bg {
+    clip-path: polygon(100% 0%, 100% 47%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    width: 100%;
+    height: 100%;
+    background: var(--theme-color); /* all css variables defined in app.css  */
+}
+.intro_right_img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+@media screen and (max-width: 980px) {
+    .intro_left_content {
+        padding: 0 2rem;
+    }
+    .intro_right_bg {
+        clip-path: circle(40% at 50% 50%);
+    }
+
+    .intro_left_socialMedia{
+        margin-top: 5rem;
+    }
+}
+
+@media screen and (max-width: 720px){
+    .portfolio_Intro {
+        flex-direction: column;
+        padding: 2rem 0;
+    }
+    .intro_left_socialMedia{
+        margin: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .intro_left_content {
+        padding: 1rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: fit-content;
+    }
+    .intro_left_content > h1 {
+        font-size: 3rem;
+    }
+    .intro_left_desc {
+        display: none;
+    }
+    .intro_left_socialMedia {
+        display: none;
+    }
+}
