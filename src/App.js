@@ -79,7 +79,7 @@ function App() {
   const themeRef = useRef(null);
 
 
-  // const errHadnler = (error, errInfo) => {
+  // const errHandler = (error, errInfo) => {
   //   console.log("Logging: ", error, errInfo)
 
   //   // or we can call the logging service here to display the error something like that
